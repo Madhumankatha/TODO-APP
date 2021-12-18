@@ -31,3 +31,8 @@ def addTodo(request : Request, name : str =  Form(...), desc : str = Form(...)):
         con.commit()
     return RedirectResponse("/",status_code=status.HTTP_302_FOUND)
     #return templates.TemplateResponse("index.html",{"request" : request, "message" : "succesfully added!!" })
+
+
+@app.get("/register",response_class=HTMLResponse)
+def register(request : Request):
+    return templates.TemplateResponse("register.html", {"request" : request})
